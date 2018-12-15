@@ -1,23 +1,25 @@
 from os import path
+import Model.account
 
 FILENAME = 'account.txt'
 
 
 def get_list():
-    data_list = []
+    customer_list = []
     file = open(FILENAME, 'r')
     for line in file:
         data = line.split()
-        data_list.append(data)
+        customer = account(data[0], data[1], data[2], data[3], data[4], data[5])
+        customer_list.append(customer)
     
     file.close()
-    return data_list
+    return customer_list
 
 
-def write_list(data_list):
+def write_list(customer_list):
     file = open(FILENAME, 'w')
-    for data in data_list:
-        string = ' '.join(data)
+    for customer in customer_list:
+        string = customer.get_list()
         file.writelines(string)
     
     file.close()
