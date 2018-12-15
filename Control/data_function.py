@@ -33,8 +33,5 @@ def test():
 
 if __name__ == '__main__':
     list = get_list()
-    # for data in list:
-    #     string = ' '.join(data)
-    #     print(string)
     write_list(list)
     print(get_list())
