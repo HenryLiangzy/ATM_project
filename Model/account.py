@@ -42,5 +42,5 @@ class account(object):
         self.__vip = vip
 
     def set_update_time(update_time):
-        self.__update_time
+        self.__update_time = update_time
     
