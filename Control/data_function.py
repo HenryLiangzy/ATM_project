@@ -12,7 +12,6 @@ def get_list():
     for line in file.readlines():
         data = line.split()
         customer = account(data[0], data[1], data[2], data[3], data[4], data[5])
-        print(customer.get_customer())
         customer_list.append(customer)
     
     file.close()
