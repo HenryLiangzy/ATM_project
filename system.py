@@ -1,5 +1,5 @@
-import View.consle
+from View.consle import display_system
 
 
 if __name__ == '__main__':
-    consle.display_system()
+    display_system()

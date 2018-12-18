@@ -1,5 +1,7 @@
 from os import path
-import Model.account
+import sys
+sys.path.append('.')
+from Model.account import account
 
 FILENAME = 'account.txt'
 
@@ -7,9 +9,10 @@ FILENAME = 'account.txt'
 def get_list():
     customer_list = []
     file = open(FILENAME, 'r')
-    for line in file:
+    for line in file.readlines():
         data = line.split()
         customer = account(data[0], data[1], data[2], data[3], data[4], data[5])
+        print(customer.get_customer())
         customer_list.append(customer)
     
     file.close()
@@ -17,21 +20,20 @@ def get_list():
 
 
 def write_list(customer_list):
-    file = open(FILENAME, 'w')
-    for customer in customer_list:
-        string = customer.get_list()
-        file.writelines(string)
+    with open(FILENAME, 'w') as file:
+        for customer in customer_list:
+            file.writelines(customer.get_customer())
     
-    file.close()
     return None
 
 
 def test():
     file = open(FILENAME, 'r')
-    print(file.read())
+    print(file.readlines())
 
 
 if __name__ == '__main__':
     list = get_list()
-    write_list(list)
-    print(get_list())
+    # for element in list:
+    #     print(element.get_customer())
+    # test()
